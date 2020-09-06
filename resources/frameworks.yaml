@@ -59,10 +59,10 @@ AutoGluon_best:
     presets: best_quality
 
 autosklearn:
-  version: '0.8.0'
+  version: 'latest'
   project: https://automl.github.io/auto-sklearn/
-#  params:
-#    _save_artifacts: ['models']
+  params:
+    _save_artifacts: ['models']
 #    _n_jobs: 1
 
 AutoWEKA:

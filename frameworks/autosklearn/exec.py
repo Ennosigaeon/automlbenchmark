@@ -119,6 +119,10 @@ def save_artifacts(estimator, config):
             models_file = os.path.join(output_subdir('models', config), 'models.txt')
             with open(models_file, 'w') as f:
                 f.write(models_repr)
+            for idx, automl in enumerate(estimator._automl):
+                runhistory_file = os.path.join(output_subdir('models', config), 'runhistory_{}.json'.format(idx))
+                automl.runhistory_.save_json(runhistory_file)
+
     except Exception:
         log.debug("Error when saving artifacts.", exc_info=True)
 
