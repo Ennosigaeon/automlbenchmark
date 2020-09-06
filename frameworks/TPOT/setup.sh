@@ -2,7 +2,7 @@
 HERE=$(dirname "$0")
 AMLB_DIR="$1"
 VERSION=${2:-"latest"}
-REPO=${3:-"https://github.com/EpistasisLab/tpot"}
+REPO=${3:-"https://github.com/Ennosigaeon/tpot"}
 PKG=${4:-"tpot[dask]"}
 if [[ "$VERSION" == "latest" ]]; then
     VERSION="master"

@@ -11,6 +11,7 @@ os.environ['OMP_NUM_THREADS'] = '1'
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 os.environ['MKL_NUM_THREADS'] = '1'
 from tpot import TPOTClassifier, TPOTRegressor
+from tpot.config.classifier_benchmark import tpot_config
 
 from frameworks.shared.callee import call_run, result, output_subdir, utils
 
@@ -53,6 +54,7 @@ def run(dataset, config):
                      max_time_mins=runtime_min,
                      scoring=scoring_metric,
                      random_state=config.seed,
+                     config_dict=tpot_config,
                      **training_params)
 
     with utils.Timer() as training:
