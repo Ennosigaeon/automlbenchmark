@@ -27,7 +27,7 @@
 # local defaults (applying only to tasks defined in this file) can be defined in a task named "__defaults__"
 - name: __defaults__
   folds: 2
-  cores: 2
+  cores: 1
   max_runtime_seconds: 60
 
 - name: kc2
@@ -37,7 +37,3 @@
 - name: iris
   openml_task_id: 59
   description: "multiclass test dataset"
-
-- name: cholesterol
-  openml_task_id: 2295
-  description: "regression test dataset"
