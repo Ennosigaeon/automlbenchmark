@@ -62,6 +62,7 @@ def setup(log_file=None, root_file=None, root_level=logging.WARNING, app_level=N
     frameworks_logger.setLevel(app_level)
 
     file_formatter = MillisFormatter('[%(levelname)s] [%(name)s:%(asctime)s] %(message)s', datefmt='%H:%M:%S')
+    console.setFormatter(file_formatter)
 
     if log_file:
         # create file handler
