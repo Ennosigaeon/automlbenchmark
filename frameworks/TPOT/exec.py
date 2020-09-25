@@ -1,5 +1,6 @@
 import logging
 import os
+import pickle
 import pprint
 import sys
 import tempfile as tmp
@@ -96,6 +97,9 @@ def save_artifacts(estimator, config):
                         model=str(m[1]),
                         pipeline=models[str(m[1])],
                     ), stream=f)
+            run_history_file = os.path.join(output_subdir('models', config), 'runhistory.pkl')
+            with open(run_history_file, 'wb') as f:
+                pickle.dump(estimator.run_history, f)
     except Exception:
         log.debug("Error when saving artifacts.", exc_info=True)
 
