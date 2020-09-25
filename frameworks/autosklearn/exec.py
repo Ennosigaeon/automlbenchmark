@@ -2,7 +2,10 @@ import logging
 import math
 import os
 import tempfile as tmp
+import time
 import warnings
+
+import pickle
 
 os.environ['JOBLIB_TEMP_FOLDER'] = tmp.gettempdir()
 os.environ['OMP_NUM_THREADS'] = '1'
@@ -22,6 +25,8 @@ def run(dataset, config):
     log.info("\n**** AutoSklearn ****\n")
     warnings.simplefilter(action='ignore', category=FutureWarning)
     warnings.simplefilter(action='ignore', category=DeprecationWarning)
+
+    start = time.time()
 
     is_classification = config.type == 'classification'
 
@@ -87,6 +92,7 @@ def run(dataset, config):
                              ml_memory_limit=ml_memory_limit,
                              ensemble_memory_limit=ensemble_memory_limit,
                              seed=config.seed,
+                             per_run_time_limit=360,
                              **constr_extra_params,
                              **training_params)
     with utils.Timer() as training:
@@ -99,7 +105,7 @@ def run(dataset, config):
     predictions = auto_sklearn.predict(X_test)
     probabilities = auto_sklearn.predict_proba(X_test) if is_classification else None
 
-    save_artifacts(auto_sklearn, config)
+    save_artifacts(auto_sklearn, config, start, dataset)
 
     return result(output_file=config.output_predictions_file,
                   predictions=predictions,
@@ -110,12 +116,25 @@ def run(dataset, config):
                   training_duration=training.duration)
 
 
-def save_artifacts(estimator, config):
+def save_artifacts(estimator, config, start, dataset):
     try:
         models_repr = estimator.show_models()
         log.debug("Trained Ensemble:\n%s", models_repr)
         artifacts = config.framework_params.get('_save_artifacts', [])
         if 'models' in artifacts:
+            config_file = os.path.join(output_subdir('models', config), 'configspace.pkl')
+            try:
+                with open(config_file, 'wb') as f:
+                    cs = estimator.get_configuration_space(dataset.train.X_enc, dataset.train.y_enc)
+                    print(cs)
+                    pickle.dump(cs, f)
+            except Exception as ex:
+                log.exception('Error: {}'.format(ex))
+
+            start_file = os.path.join(output_subdir('models', config), 'start.txt')
+            with open(start_file, 'w') as f:
+                f.write(str(start))
+
             models_file = os.path.join(output_subdir('models', config), 'models.txt')
             with open(models_file, 'w') as f:
                 f.write(models_repr)
