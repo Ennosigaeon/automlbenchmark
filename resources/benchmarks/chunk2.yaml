@@ -1,0 +1,20 @@
+- name: __defaults__
+  folds: 10
+  cores: 4
+  max_runtime_seconds: 3600
+
+
+- name: ada_agnostic
+  openml_task_id: 3896
+
+- name: adult
+  openml_task_id: 7592
+
+- name: analcatdata_authorship
+  openml_task_id: 3549
+
+- name: analcatdata_dmft
+  openml_task_id: 3560
+
+- name: Australian
+  openml_task_id: 146818

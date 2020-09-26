@@ -1,0 +1,20 @@
+- name: __defaults__
+  folds: 10
+  cores: 4
+  max_runtime_seconds: 3600
+
+
+- name: bank-marketing
+  openml_task_id: 14965
+
+- name: blood-transfusion
+  openml_task_id: 10101
+
+- name: car
+  openml_task_id: 146821
+
+- name: collins
+  openml_task_id: 3567
+
+- name: connect-4
+  openml_task_id: 146195

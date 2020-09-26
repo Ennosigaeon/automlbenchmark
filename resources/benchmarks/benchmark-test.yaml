@@ -1,0 +1,95 @@
+- name: __defaults__
+  folds: 1
+  cores: 4
+  max_runtime_seconds: 1800
+
+
+- name: ada_agnostic
+  openml_task_id: 3896
+
+- name: adult
+  openml_task_id: 7592
+
+- name: analcatdata_authorship
+  openml_task_id: 3549
+
+- name: analcatdata_dmft
+  openml_task_id: 3560
+
+- name: Australian
+  openml_task_id: 146818
+
+- name: bank-marketing
+  openml_task_id: 14965
+
+- name: blood-transfusion
+  openml_task_id: 10101
+
+- name: car
+  openml_task_id: 146821
+
+- name: collins
+  openml_task_id: 3567
+
+- name: connect-4
+  openml_task_id: 146195
+
+- name: credit-g
+  openml_task_id: 31
+
+- name: eeg-eye-state
+  openml_task_id: 9983
+
+#- name: gas-drift
+#  openml_task_id: 9986
+
+- name: Helena
+  openml_task_id: 168329
+
+- name: higgs
+  openml_task_id: 146606
+
+- name: Jannis
+  openml_task_id: 168330
+
+- name: jasmine
+  openml_task_id: 168911
+
+- name: jungle_chess_2pcs_raw_endgame_complete
+  openml_task_id: 167119
+
+- name: kc2
+  openml_task_id: 3913
+
+- name: kr-vs-kp
+  openml_task_id: 3
+
+- name: mfeat-factors
+  openml_task_id: 12
+
+- name: mfeat-morphological
+  openml_task_id: 18
+
+- name: nomao
+  openml_task_id: 9977
+
+- name: numerai28.6
+  openml_task_id: 167120
+
+- name: phoneme
+  openml_task_id: 9952
+
+- name: sa-heart
+  openml_task_id: 9961
+
+- name: segment
+  openml_task_id: 146822
+
+- name: Shuttle
+  openml_task_id: 146212
+
+- name: sylvine
+  openml_task_id: 168912
+
+- name: vehicle
+  openml_task_id: 53

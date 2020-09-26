@@ -1,0 +1,20 @@
+- name: __defaults__
+  folds: 10
+  cores: 4
+  max_runtime_seconds: 3600
+
+
+- name: numerai28.6
+  openml_task_id: 167120
+
+- name: phoneme
+  openml_task_id: 9952
+
+- name: sa-heart
+  openml_task_id: 9961
+
+#- name: segment
+#  openml_task_id: 146822
+
+- name: Shuttle
+  openml_task_id: 146212

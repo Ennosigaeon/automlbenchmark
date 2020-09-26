@@ -1,0 +1,26 @@
+- name: __defaults__
+  folds: 10
+  cores: 4
+  max_runtime_seconds: 3600
+
+
+- name: credit-g
+  openml_task_id: 31
+
+#- name: eeg-eye-state
+#  openml_task_id: 9983
+
+#- name: gas-drift
+#  openml_task_id: 9986
+
+- name: Helena
+  openml_task_id: 168329
+
+- name: higgs
+  openml_task_id: 146606
+
+- name: Jannis
+  openml_task_id: 168330
+
+- name: jasmine
+  openml_task_id: 168911

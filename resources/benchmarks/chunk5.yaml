@@ -1,0 +1,23 @@
+- name: __defaults__
+  folds: 10
+  cores: 4
+  max_runtime_seconds: 3600
+
+
+- name: jungle_chess_2pcs_raw_endgame_complete
+  openml_task_id: 167119
+
+- name: kc2
+  openml_task_id: 3913
+
+- name: kr-vs-kp
+  openml_task_id: 3
+
+- name: mfeat-factors
+  openml_task_id: 12
+
+#- name: mfeat-morphological
+#  openml_task_id: 18
+
+- name: nomao
+  openml_task_id: 9977
