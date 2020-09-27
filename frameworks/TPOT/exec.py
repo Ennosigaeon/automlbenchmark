@@ -56,6 +56,7 @@ def run(dataset, config):
                      scoring=scoring_metric,
                      random_state=config.seed,
                      config_dict=tpot_config,
+                     verbosity=2,
                      **training_params)
 
     with utils.Timer() as training:
