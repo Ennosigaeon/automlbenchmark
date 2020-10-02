@@ -300,8 +300,11 @@ class TaskResult:
         task_name = d['task']
         fold = int(d['fold'])
         result = cls.load_predictions(path)
-        task_result = cls(task_name, fold, '')
-        metrics = rconfig().benchmarks.metrics.get(result.type.name)
+        task_result = cls(Namespace(name=task_name, id=''), fold, '')
+        try:
+            metrics = rconfig().benchmarks.metrics.get(result.type.name)
+        except Exception:
+            metrics = vars(rconfig().benchmarks.metrics).get(result.type.name)
         return task_result.compute_scores(framework_name, metrics, result=result)
 
     def __init__(self, task_def, fold: int, constraint: str, predictions_dir=None):
