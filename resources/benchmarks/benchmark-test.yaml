@@ -1,7 +1,7 @@
 - name: __defaults__
   folds: 1
   cores: 4
-  max_runtime_seconds: 1800
+  max_runtime_seconds: 300
 
 
 - name: ada_agnostic
@@ -25,6 +25,7 @@
 - name: blood-transfusion
   openml_task_id: 10101
 
+# TPOT
 - name: car
   openml_task_id: 146821
 
@@ -37,9 +38,11 @@
 - name: credit-g
   openml_task_id: 31
 
-- name: eeg-eye-state
-  openml_task_id: 9983
+# TPOT
+#- name: eeg-eye-state
+#  openml_task_id: 9983
 
+# dswizard
 #- name: gas-drift
 #  openml_task_id: 9986
 

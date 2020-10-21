@@ -1,11 +1,8 @@
 - name: __defaults__
-  folds: 10
+  folds: 3
   cores: 4
   max_runtime_seconds: 3600
 
-# TPOT
-- name: eeg-eye-state
-  openml_task_id: 9983
 
 - name: mfeat-morphological
   openml_task_id: 18
@@ -18,3 +15,7 @@
 
 - name: vehicle
   openml_task_id: 53
+
+# TPOT
+- name: eeg-eye-state
+  openml_task_id: 9983
