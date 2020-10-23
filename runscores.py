@@ -45,7 +45,7 @@ data = {'id': [],
         'acc': [],
         'auc': [],
         'logloss': []}
-for filepath in glob.iglob(os.path.join(args.predictions, '*.csv')):
+for filepath in glob.glob(os.path.join(args.predictions, '*.csv'), recursive=True):
     try:
         score = amlb.TaskResult.score_from_predictions_file(filepath)
         for key in data.keys():
@@ -54,4 +54,4 @@ for filepath in glob.iglob(os.path.join(args.predictions, '*.csv')):
         traceback.print_exc()
 
 df = pd.DataFrame(data)
-df.to_csv('tmp.csv', index=False)
+df.to_csv('tpot.csv', index=False)
