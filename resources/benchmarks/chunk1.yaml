@@ -1,5 +1,5 @@
 - name: __defaults__
-  folds: 3
+  folds: 10
   cores: 4
   max_runtime_seconds: 3600
 

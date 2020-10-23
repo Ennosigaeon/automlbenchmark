@@ -135,3 +135,9 @@ mljarsupervised:
     mode: "Compete"   # set mode for Compete, default mode is Explain
 #    algorithms: ["Baseline"]
 #    _save_artifacts: True
+
+dswizard:
+  version: 'latest'
+  project: https://github.com/Ennosigaeon/dswizzard
+  params:
+    _save_artifacts: ['models']
