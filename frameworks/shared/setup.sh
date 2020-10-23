@@ -24,14 +24,14 @@ fi
 if [[ -n "$PY_VENV" ]]; then
     py_exec="$PY_VENV/bin/python"
     if [[ ! -x py_exec ]]; then
-        python3 -m venv "$PY_VENV"
+        python3.8 -m venv "$PY_VENV"
         $py_exec -m pip install -U pip wheel
     fi
     py_exec="$py_exec -W ignore"
     pip_exec="$PY_VENV/bin/pip"
 else
-    pip_exec=pip3
-    py_exec=python3
+    pip_exec=python3.8 -m pip
+    py_exec=python3.8
 fi
 
 PY() {
