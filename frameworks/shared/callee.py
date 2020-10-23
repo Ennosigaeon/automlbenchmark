@@ -15,11 +15,11 @@ except ImportError:
 
 def setup_logger():
     console = logging.StreamHandler(sys.stdout)
-    console.setLevel(logging.INFO)
+    console.setLevel(logging.DEBUG)
     handlers = [console]
     logging.basicConfig(handlers=handlers)
     root = logging.getLogger()
-    root.setLevel(logging.INFO)
+    root.setLevel(logging.DEBUG)
 
 
 setup_logger()
