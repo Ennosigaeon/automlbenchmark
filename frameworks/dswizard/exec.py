@@ -79,8 +79,7 @@ def run(dataset, config):
 
             bandit_learner_class=HyperbandLearner,
             bandit_learner_kwargs={'min_budget': 1,
-                                   'max_budget': 10,
-                                   'eta': 2}
+                                   'max_budget': 10}
         )
         with Timer() as training:
             predictor, run_history = master.optimize()
