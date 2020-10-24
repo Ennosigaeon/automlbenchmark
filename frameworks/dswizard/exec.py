@@ -103,9 +103,6 @@ def run(dataset, config):
     except Exception as ex:
         log.exception('Unhandled exception', ex, exc_info=True)
         raise ex
-    finally:
-        if master is not None:
-            master.shutdown()
 
     log.info("Finished")
     return result(output_file=config.output_predictions_file,
