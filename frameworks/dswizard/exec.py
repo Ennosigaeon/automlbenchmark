@@ -93,13 +93,6 @@ def run(dataset, config):
         probabilities = predictor.predict_proba(X_test) if is_classification else None
         scores.append(util.score(y_test, probabilities, predictions, scoring_metric))
 
-        cloned_ensemble = clone(ensemble)
-        cloned_ensemble.__class__ = VotingClassifier
-        cloned_ensemble.fit(X_train, y_train)
-        predictions = cloned_ensemble.predict(X_test)
-        probabilities = cloned_ensemble.predict_proba(X_test) if is_classification else None
-        scores.append(util.score(y_test, probabilities, predictions, scoring_metric))
-
         predictions = ensemble.predict(X_test)
         probabilities = ensemble.predict_proba(X_test) if is_classification else None
         scores.append(util.score(y_test, probabilities, predictions, scoring_metric))
@@ -107,7 +100,7 @@ def run(dataset, config):
         log.info('Final performances: {}'.format(scores))
         model_file = os.path.join(output_subdir('models', config), 'models.pkl')
         with open(model_file, 'wb') as f:
-            pickle.dump((predictor, ensemble, cloned_ensemble), f)
+            pickle.dump((predictor, ensemble), f)
     except Exception as ex:
         log.exception('Unhandled exception', ex, exc_info=True)
         raise ex
