@@ -9,8 +9,6 @@ from dswizard.optimizers.bandit_learners import HyperbandLearner
 from dswizard.optimizers.config_generators import Hyperopt
 from dswizard.optimizers.structure_generators.mcts import MCTS, TransferLearning
 from dswizard.util import util
-from sklearn import clone
-from sklearn.ensemble import VotingClassifier
 
 from frameworks.shared.callee import call_run, result, output_subdir
 
@@ -59,7 +57,6 @@ def run(dataset, config):
     with open(data_file, 'wb') as f:
         pickle.dump((X_train, y_train, X_test, y_test), f)
 
-    master = None
     try:
         ds = DsDataset(X_train, y_train, metric=scoring_metric)
         master = Master(
